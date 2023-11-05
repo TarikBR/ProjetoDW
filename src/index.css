@@ -1,1 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html,body{
+    width: 100%;
+    height: 100vh;
+}
+
+.wrapper{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navbox{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e4e4e4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 25px;
+}
+
+.navbox .leftside{
+    width: 80px;
+    height: 80px;
+}
+
+.navbox .leftside img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbox .rightside{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbox .rightside .navlinks{
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin: auto 10px;
+}
