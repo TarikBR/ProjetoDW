@@ -1,11 +1,12 @@
-import * as firebase from 'firebase';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCEDKeVDSlL5monU7ppM0EN2dnnmGr1EWs",
     authDomain: "projeto-dw-10e4b.firebaseapp.com",
+    databaseURL: "https://projeto-dw-10e4b-default-rtdb.firebaseio.com",
     projectId: "projeto-dw-10e4b",
     storageBucket: "projeto-dw-10e4b.appspot.com",
     messagingSenderId: "131677022349",
@@ -13,10 +14,9 @@ const firebaseConfig = {
     measurementId: "G-PKK4T9YT45"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
-
-export{auth, db, storage};
+export { auth, db, storage };
