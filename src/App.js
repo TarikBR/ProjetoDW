@@ -5,6 +5,7 @@ import { AddProducts } from './components/AddProducts';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Signup } from './components/Signup';
 import { ProductsContextProvider } from './global/ProductsContext';
+import { Login } from './components/Login';
 
 export class App extends Component{
   render(){
@@ -12,9 +13,10 @@ export class App extends Component{
       <ProductsContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/addproducts" element={<AddProducts/>}/>
-            <Route path='/signup' element={<Signup/>}/>
+            <Route path="/" Component={Home}/>
+            <Route path="/addproducts" Component={AddProducts}/>
+            <Route path='/signup' Component={Signup}/>
+            <Route path='/login' Component={Login}/>
           </Routes>
         </BrowserRouter>
       </ProductsContextProvider>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/Config';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 import { collection, setDoc, doc } from 'firebase/firestore';
 
 export const Signup = (props) => {
@@ -9,6 +9,8 @@ export const Signup = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const signup = async (e) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ export const Signup = (props) => {
       setEmail('');
       setPassword('');
       setError('');
-      //props.history.push('/login'); // Desativado até criar o login
+      navigate('/login');
     } catch (err) {
       setError(err.message);
     }
@@ -57,7 +59,7 @@ export const Signup = (props) => {
       {error && <span className='error-msg'>{error}</span>}
       <br />
       <span>
-        Já possui uma conta? Logue <Link to='login'>Aqui</Link>
+        Já possui uma conta? Logue <Link to='/login'>Aqui</Link>
       </span>
     </div>
   );
