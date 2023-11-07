@@ -3,10 +3,10 @@ import '../index.css'
 import { Navbar } from './Navbar'
 import { Products } from './Products'
 
-export const Home = () => {
+export const Home = ({user}) => {
     return(
         <div className='wrapper'>
-            <Navbar/>
+            <Navbar user={user}/>
             <Products/>
         </div>
     )
