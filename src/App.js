@@ -9,6 +9,9 @@ import { Login } from './components/Login';
 import { auth, db } from './config/Config'
 import { doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+import { CartContextProvider } from './global/CartContext';
+import { Cart } from './components/Cart'
+import { ToastContainer } from "react-toastify";
 
 export class App extends Component{
 
@@ -42,14 +45,18 @@ export class App extends Component{
   render(){
     return(
       <ProductsContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path='/' Component={() => <Home user={this.state.user}/>}/>
-            <Route path="/addproducts" Component={AddProducts}/>
-            <Route path='/signup' Component={Signup}/>
-            <Route path='/login' Component={Login}/>
-          </Routes>
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route exact path='/' Component={() => <Home user={this.state.user}/>}/>
+              <Route path="/addproducts" Component={AddProducts}/>
+              <Route path='/signup' Component={Signup}/>
+              <Route path='/login' Component={Login}/>
+              <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
+            </Routes>
+            <ToastContainer/>
+          </BrowserRouter>
+        </CartContextProvider>
       </ProductsContextProvider>
     );
   };

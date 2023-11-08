@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../images/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../config/Config';
+import { Icon } from 'react-icons-kit'
+import { cart } from 'react-icons-kit/entypo/cart'
+import { CartContext } from '../global/CartContext'
 
 export const Navbar = ({user}) => {
+
   const navigate = useNavigate();
+  const { totalQty } = useContext(CartContext);
 
   const handleLogout = async () => {
     try {
@@ -19,7 +24,7 @@ export const Navbar = ({user}) => {
   return (
     <div className='navbox'>
       <div className='leftside'>
-        <img src={logo} alt='' />
+        <Link to='/'><img src={logo} alt=''/></Link>
       </div>
       {!user && (
         <div className='rightside'>
@@ -30,6 +35,8 @@ export const Navbar = ({user}) => {
       {user && (
         <div className='rightside'>
           <span><Link to='/' className='navlink'>{user}</Link></span>
+          <span><Link to="cartproducts" className='navlink'><Icon icon={cart}/></Link></span>
+          <span className='no-of-products'>{totalQty}</span>
           <span><button className='logout-btn' onClick={handleLogout}>Sair</button></span>
         </div>
       )}
