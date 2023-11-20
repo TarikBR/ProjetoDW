@@ -12,6 +12,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { CartContextProvider } from './global/CartContext';
 import { Cart } from './components/Cart'
 import { ToastContainer } from "react-toastify";
+import { Cashout } from './components/Cashout'
 
 export class App extends Component{
 
@@ -53,6 +54,7 @@ export class App extends Component{
               <Route path='/signup' Component={Signup}/>
               <Route path='/login' Component={Login}/>
               <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
+              <Route path='/cashout' Component={() => <Cashout user={this.state.user}/>}/>
             </Routes>
             <ToastContainer/>
           </BrowserRouter>
