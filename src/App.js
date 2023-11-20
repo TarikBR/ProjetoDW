@@ -13,6 +13,7 @@ import { CartContextProvider } from './global/CartContext';
 import { Cart } from './components/Cart'
 import { ToastContainer } from "react-toastify";
 import { Cashout } from './components/Cashout'
+import { NotFound } from './components/NotFound';
 
 export class App extends Component{
 
@@ -55,6 +56,7 @@ export class App extends Component{
               <Route path='/login' Component={Login}/>
               <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
               <Route path='/cashout' Component={() => <Cashout user={this.state.user}/>}/>
+              <Route path='*' Component={NotFound}/>
             </Routes>
             <ToastContainer/>
           </BrowserRouter>
