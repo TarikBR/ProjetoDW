@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import { Cashout } from './components/Cashout'
 import { NotFound } from './components/NotFound';
 import { OrdersPanel } from './components/OrdersPanel';
+import { RemoveProductsPage } from './components/RemoveProductsPage'
 
 export class App extends Component{
 
@@ -58,6 +59,7 @@ export class App extends Component{
               <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
               <Route path='/cashout' Component={() => <Cashout user={this.state.user}/>}/>
               <Route path='/orders' Component={() => <OrdersPanel user={this.state.user}/>}/>
+              <Route path='/removeproducts' Component={() => <RemoveProductsPage user={this.state.user}/>}/>
               <Route path='*' Component={NotFound}/>
             </Routes>
             <ToastContainer/>
