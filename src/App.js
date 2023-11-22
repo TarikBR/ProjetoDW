@@ -21,6 +21,7 @@ export class App extends Component{
 
   state = {
     user: null,
+    isAdmin: false,
   }
 
   componentDidMount() {
@@ -32,6 +33,7 @@ export class App extends Component{
             if (snapshot.exists()) {
               this.setState({
                 user: snapshot.data().Name,
+                isAdmin: snapshot.data().isAdmin,
               });
             }
           })
@@ -41,6 +43,7 @@ export class App extends Component{
       } else {
         this.setState({
           user: null,
+          isAdmin: false,
         });
       }
     });
@@ -53,13 +56,13 @@ export class App extends Component{
           <BrowserRouter>
             <Routes>
               <Route exact path='/' Component={() => <Home user={this.state.user}/>}/>
-              <Route path="/addproducts" Component={AddProducts}/>
+              <Route path="/addproducts" Component={() => <AddProducts user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='/signup' Component={Signup}/>
               <Route path='/login' Component={Login}/>
               <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
               <Route path='/cashout' Component={() => <Cashout user={this.state.user}/>}/>
-              <Route path='/orders' Component={() => <OrdersPanel user={this.state.user}/>}/>
-              <Route path='/removeproducts' Component={() => <RemoveProductsPage user={this.state.user}/>}/>
+              <Route path='/orders' Component={() => <OrdersPanel user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
+              <Route path='/removeproducts' Component={() => <RemoveProductsPage user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='*' Component={NotFound}/>
             </Routes>
             <ToastContainer/>

@@ -3,7 +3,7 @@ import { ProductsContext } from '../global/ProductsContext'
 import { db } from '../config/Config';
 import { doc, deleteDoc } from 'firebase/firestore';
 
-export const RemoveProducts = () => {
+export const RemoveProducts = ({user, isAdmin}) => {
 
     const { products } = useContext(ProductsContext);
 
