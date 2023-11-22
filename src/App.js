@@ -55,7 +55,7 @@ export class App extends Component{
         <CartContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path='/' Component={() => <Home user={this.state.user}/>}/>
+              <Route exact path='/' Component={() => <Home user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path="/addproducts" Component={() => <AddProducts user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='/signup' Component={Signup}/>
               <Route path='/login' Component={Login}/>

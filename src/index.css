@@ -59,6 +59,13 @@ html,body {
     color: black;
 }
 
+.navbox .rightside .admin { 
+    position: absolute;
+    right: 100px; 
+    width: 150px;
+    white-space: noWrap;
+}
+
 .navbox .rightside .no-of-products {
     background: #f57224;
     color: #fff;
