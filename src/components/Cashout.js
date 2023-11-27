@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import { addDoc, collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, onSnapshot } from 'firebase/firestore';
 import { db, auth } from '../config/Config'
 import { CartContext } from '../global/CartContext';
 import { Navbar } from './Navbar';
@@ -41,7 +41,7 @@ export const Cashout = ({ user, isAdmin }) => {
         });
 
         return unsubscribe;
-    }, [auth, navigate]);
+    }, [navigate]);
 
     const cashoutSubmit = async (e) => {
         e.preventDefault();
@@ -51,7 +51,7 @@ export const Cashout = ({ user, isAdmin }) => {
             const date = new Date();
             const time = date.getTime();
     
-            const docRef = await addDoc(collection(db, 'Buyer-info'), {
+            await addDoc(collection(db, 'Buyer-info'), {
               BuyerName: name,
               BuyerEmail: email,
               BuyerCell: cell,
