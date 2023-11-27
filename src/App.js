@@ -59,8 +59,8 @@ export class App extends Component{
               <Route path="/addproducts" Component={() => <AddProducts user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='/signup' Component={Signup}/>
               <Route path='/login' Component={Login}/>
-              <Route path="/cartproducts" Component={() => <Cart user={this.state.user}/>}/>
-              <Route path='/cashout' Component={() => <Cashout user={this.state.user}/>}/>
+              <Route path="/cartproducts" Component={() => <Cart user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
+              <Route path='/cashout' Component={() => <Cashout user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='/orders' Component={() => <OrdersPanel user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='/removeproducts' Component={() => <RemoveProductsPage user={this.state.user} isAdmin={this.state.isAdmin}/>}/>
               <Route path='*' Component={NotFound}/>

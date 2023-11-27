@@ -10,7 +10,7 @@ export const RemoveProductsPage = ({ user, isAdmin }) => {
             {!user && (<NotFound/>)}
             {isAdmin && (
                 <div className='wrapper'>
-                    <Navbar user={user}/>
+                    <Navbar user={user} isAdmin={true}/>
                     <RemoveProducts/>
                 </div>
             )}

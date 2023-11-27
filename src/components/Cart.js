@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../config/Config'
 
-export const Cart = ({ user }) => {
+export const Cart = ({ user, isAdmin }) => {
 
     const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(CartContext);
 
@@ -28,7 +28,8 @@ export const Cart = ({ user }) => {
 
     return (
         <>
-            <Navbar user={user} />
+            {!isAdmin && (<Navbar user={user}/>)}
+            {isAdmin && (<Navbar user={user} isAdmin={true}/>)}
             <>
                 {shoppingCart.length !== 0 && <h1>Carrinho</h1>}
                 <div className='cart-container'>

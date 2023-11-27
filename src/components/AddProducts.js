@@ -55,7 +55,7 @@ export const AddProducts = ({ user, isAdmin }) => {
       {!user && (<NotFound />)}
       {isAdmin && (
         <div>
-          <Navbar user={user}/>
+          <Navbar user={user} isAdmin={true}/>
         <div className='container'>
           <br />
           <h2>Adicionar Produtos</h2>

@@ -6,7 +6,7 @@ import { db, auth } from '../config/Config'
 import { CartContext } from '../global/CartContext';
 import { Navbar } from './Navbar';
 
-export const Cashout = (props) => {
+export const Cashout = ({ user, isAdmin }) => {
     const navigate = useNavigate();
     const { shoppingCart, totalPrice, totalQty, dispatch } = useContext(CartContext);
 
@@ -78,7 +78,8 @@ export const Cashout = (props) => {
 
     return (
         <>
-            <Navbar user={props.user} />
+            {!isAdmin && (<Navbar user={user}/>)}
+            {isAdmin && (<Navbar user={user} isAdmin={true}/>)}
             <div className="container">
                 <br/>
                 <h2>Detalhes de Pagamento</h2>
