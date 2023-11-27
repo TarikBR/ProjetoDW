@@ -161,6 +161,19 @@ body {
     outline: none;
 }
 
+.products-container .product-card .deleteproduct-btn {
+    background-color: red;
+    color: #fff;
+    border: hidden;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    outline: none;
+    font-weight: 600;
+}
+
 .cart-container {
     display: flex;
     flex-direction: column;
