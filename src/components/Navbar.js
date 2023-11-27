@@ -26,22 +26,22 @@ export const Navbar = ({ user, isAdmin }) => {
       <div className='leftside'>
         <Link to='/'><img src={logo} alt='' /></Link>
       </div>
+      {isAdmin && (
+          <span>
+            <details className='admin'>
+              <summary>Admin</summary>
+              <Link to='/addproducts'>Adicionar Produtos</Link><br/>
+              <Link to='/removeproducts'>Remover Produtos</Link><br/>
+              <Link to='/orders'>Pedidos</Link>
+            </details>
+          </span>
+        )}
       <div className='rightside'>
         {!user && (
           <>
             <span><Link to='/signup' className='navlink'>Registrar</Link></span>
             <span><Link to='/login' className='navlink'>Logar</Link></span>
           </>
-        )}
-        {isAdmin && (
-          <span>
-            <details className='admin'>
-              <summary>Admin</summary>
-              <Link to='/addproducts'>Adicionar Produtos</Link><br />
-              <Link to='/removeproducts'>Remover Produtos</Link><br />
-              <Link to='/orders'>Pedidos</Link>
-            </details>
-          </span>
         )}
         {user && (
           <>

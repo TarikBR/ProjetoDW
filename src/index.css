@@ -60,11 +60,11 @@ body {
     color: black;
 }
 
-.navbox .rightside .admin {
+.navbox .admin {
     position: absolute;
-    right: 100px;
     width: 150px;
     white-space: noWrap;
+    background-color: #fff;
 }
 
 .navbox .rightside .no-of-products {
